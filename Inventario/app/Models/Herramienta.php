@@ -8,24 +8,22 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Herramienta extends Model
 {
+    use HasFactory;
+    
     protected $fillable = [
         'her_nombre',
         'her_codigo',
         'her_estado',
         'her_descripcion',
-        'her_obr_id',
-
     ];
 
-
     /**
-     * Get the obra associated with the Herramienta
+     * Get the obras associated with the Herramienta
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function obra(): HasMany
+    public function obras(): HasMany
     {
         return $this->hasMany(Obra::class, 'obr_id');
     }
-
 }

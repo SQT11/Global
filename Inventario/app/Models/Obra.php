@@ -8,38 +8,35 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Obra extends Model
 {
+    use HasFactory;
+
     protected $fillable = [
-    
         'obr_estado_obra',
         'obr_lugar',
         'obr_fecha_inicio',
         'obr_fecha_fin',
         'obr_encargado',
-        'obr_her_id',
-        'obr_per_id',
-        
+        'her_id',
+        'per_id',
     ];
 
     /**
-     * Get the herramienta  that owns the obra
+     * Get the herramienta that owns the obra
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function Herramienta(): BelongsTo
+    public function herramienta(): BelongsTo
     {
         return $this->belongsTo(Herramienta::class, 'her_id');
     }
 
     /**
-     * Get the Persona  that owns the obra
+     * Get the persona that owns the obra
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function Persona(): BelongsTo
+    public function persona(): BelongsTo
     {
         return $this->belongsTo(Persona::class, 'per_id');
     }
-
-
-
 }

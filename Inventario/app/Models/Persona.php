@@ -8,22 +8,21 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Persona extends Model
 {
+    use HasFactory;
+
     protected $fillable = [
-    
         'per_nombre_completo',
         'per_cargo',
         'per_telefono',
         'per_email',
-        'per_obr_id',
-
     ];
 
     /**
-     * Get the obra associated with the Persona
+     * Get the obras associated with the Persona
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function obra(): HasMany
+    public function obras(): HasMany
     {
         return $this->hasMany(Obra::class, 'obr_id');
     }
